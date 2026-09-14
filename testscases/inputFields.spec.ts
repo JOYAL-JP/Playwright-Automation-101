@@ -22,15 +22,4 @@ test.describe('Input Fields Tests', () => {
     await inputFieldsPage.verifyMovieName('Inception');
   });
 
-  test('TC004- ', async ({ page }) => {
-
-    const inputFieldsPage = new InputFieldsPage(page);
-
-    await inputFieldsPage.enterMovieName('Inception');
-
-    await inputFieldsPage.clickSubmit();
-
-    await inputFieldsPage.verifyMovieName('Inception');
-  });
-
 });
