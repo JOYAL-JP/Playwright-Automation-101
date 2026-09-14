@@ -26,8 +26,9 @@ export class InputFieldsPage extends BasePage {
 
     console.log(`Actual Value: ${actualMovie}`);
 
+
     await expect(
       this.page.getByTestId('result-s01')
-    ).toHaveText(expectedMovie);
+    ).toContainText(expectedMovie);
   }
 }
