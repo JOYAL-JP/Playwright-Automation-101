@@ -23,22 +23,13 @@ export class InputFieldsPage extends BasePage {
       .click();
   }
 
-  async verifyMovieName(VmovieName:String) {
+  async verifyMovieName(VmovieName: string) {
+  await expect(
+    this.page.getByTestId('result-s01')
+  ).toContainText(VmovieName);
 
-    const appearedName = await this.page
-      .getByTestId('result-s01')
-      .innerText();
-
-    if (VmovieName== appearedName) {
-         console.log('✅ Movie name is matching');
-console.log(`Expected: ${VmovieName}`);
-console.log(`Actual: ${appearedName}`);
-    }
-else
-{
-  console.log('❌ Movie name is NOT matching');
+  await this.page.waitForTimeout(1000);
 }
-  }
   // TCS02
 
 
@@ -66,7 +57,8 @@ else
 
     const valueInputed = this.readFieldValue();
     console.log(valueInputed);
-await this.page.waitForTimeout(1000);
+    await this.page.waitForTimeout(1000);
+    //TCS04
 
 
   }
