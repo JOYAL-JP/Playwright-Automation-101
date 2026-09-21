@@ -41,5 +41,10 @@ test(' TCS03- Read value and Press Read value Button', async ({ page }) => {
 
   });
 
+test ('TCS04- Clear the input field and check confirmation' ,async({page})=>{
+
+  const inputFieldsPage =new InputFieldsPage(page);
+  await inputFieldsPage.clearInputField();
+})
 
 });

@@ -58,8 +58,21 @@ export class InputFieldsPage extends BasePage {
     const valueInputed = this.readFieldValue();
     console.log(valueInputed);
     await this.page.waitForTimeout(1000);
-    //TCS04
-
-
   }
+//TCS04- Clear the input field and check confirmation
+
+async clearInputField()
+{
+  await this.page.getByRole('button', {name:'Clear'}).click();
+  const value = await this.page.getByTestId('result-s04').innerText();
+  const value1=await this.page.getByTestId('input-clear').inputValue();
+
+if (value === 'Field cleared ✓') {
+  console.log('Field is empty');
+} else {
+  console.log('Field contains:', value1);
+}
+await this.page.waitForTimeout(500);
+}
+
 }
