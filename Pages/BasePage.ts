@@ -13,11 +13,20 @@ export class BasePage {
       .toHaveText('Practice Elements');
   }
 
+
   async navigateToInputFieldsPage() {
     await this.page.locator('a[href="/practice/input-fields"]').click();
 
     await expect(this.page).toHaveURL(/input-fields/);
     await expect(this.page.locator('h1'))
       .toHaveText('Input Field Automation Practice');
+  }
+
+  async navigateToButtonsPage() {
+    await this.page.locator('a[href="/practice/buttons"]').click();
+
+    await expect(this.page).toHaveURL(/buttons/);
+    await expect(this.page.locator('h1'))
+      .toHaveText('Button Automation Practice');
   }
 }
