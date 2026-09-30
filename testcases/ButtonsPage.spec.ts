@@ -28,18 +28,48 @@ test.describe('Button tests', () => {
     })
 
     test('BTN_004 - Doulble click ', async ({ page }) => {
-        const ButtonPage= new ButtonsPage(page);
+        const ButtonPage = new ButtonsPage(page);
         await ButtonPage.doublClick();
     });
 
-test('BTN_005 - Right click action', async ({ page }) => {
-        const ButtonPage= new ButtonsPage(page);
+    test('BTN_005 - Right click action', async ({ page }) => {
+        const ButtonPage = new ButtonsPage(page);
         await ButtonPage.rightClickAction();
     });
 
-test('BTN_006 - Disabled button assertion', async ({ page }) => {
-        const ButtonPage= new ButtonsPage(page);
+    test('BTN_006 - Disabled button assertion', async ({ page }) => {
+        const ButtonPage = new ButtonsPage(page);
         await ButtonPage.disabledButtonAssertion();
     });
+
+    test('BTN_007 - Enabled button assertion', async ({ page }) => {
+        const ButtonPage = new ButtonsPage(page);
+        await ButtonPage.enabledButtonAssertion();
+    });
+
+    test('BTN_008 - Test out View ports', async ({ page }) => {
+        const ButtonPage = new ButtonsPage(page);
+        await ButtonPage.verifyButtonVisibleInMobile();
+        await ButtonPage.verifyButtonVisibleInDesktop();
+    });
+
+    test('BTN_009 - Test Keyboard accessiblity', async ({ page }) => {
+        const ButtonPage = new ButtonsPage(page);
+        await ButtonPage.keyboardAccessible();
+
+    });
+
+    test("BTN_010 Accessible name for button", async ({ page }) => {
+
+        const ButtonPage = new ButtonsPage(page);
+        await ButtonPage.accessibleName();
+    });
+    test("BTN_011 VerifyButtonHoverState change", async ({ page }) => {
+
+        const ButtonPage = new ButtonsPage(page);
+        await ButtonPage.verifyButtonHoverEffect();
+    });
+
+
 });
 
