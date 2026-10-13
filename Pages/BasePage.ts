@@ -28,5 +28,16 @@ export class BasePage {
     await expect(this.page).toHaveURL(/buttons/);
     await expect(this.page.locator('h1'))
       .toHaveText('Button Automation Practice');
+
   }
+
+
+  async navigateToFormsPage() {
+    await this.page.locator('a[href="/practice/forms"]').click();
+
+    await expect(this.page).toHaveURL(/forms/);
+    await expect(this.page.locator('h1'))
+      .toHaveText('Form Automation Practice');
+  }
+
 }
