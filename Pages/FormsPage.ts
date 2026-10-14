@@ -39,6 +39,21 @@ export class FormsPage extends BasePage {
 
 
     //F03
-
+    async AddressForm(Country:string)
+    {
+        await this.page.selectOption('select',{label: Country});
+        await this.page.getByLabel("City ").fill('Tokyo');
+        await this.page.locator('//*[@id="bio"]').fill('my dream is to become hokage the greatest of all time')
+        await this.page.locator('//*[@id="addressSubmitBtn"]').click();
+        await expect(this.page.getByTestId('result-address')).toContainText('Japan');
+    }
     
+    //F04
+
+    async InterestForm()
+    {
+        await this.page.getByLabel('Playwright').check();
+        await this.page.getByRole('button',{name:"Save Interests"}).click();
+        await expect(this.page.getByTestId('result-interests')).toContainText('Playwright');
+    }
 }

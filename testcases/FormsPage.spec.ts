@@ -22,7 +22,21 @@ test.describe('From Tests', () => {
 
         const formpage = new FormsPage(page);
         await formpage.PersonalDetailsForm();
+        
+      
+    });
+    test('F03 Address details validation', async ({ page }) => {
+
+        const Country ="Japan"
+        const formpage = new FormsPage(page);
+        await formpage.AddressForm(Country);
+        
       
     });
 
+    test('F04 Interest Form Details ',async({page})=>{
+
+        const formpage =new FormsPage(page);
+        await formpage.InterestForm();
+    })
 });
