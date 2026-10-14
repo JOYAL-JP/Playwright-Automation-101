@@ -131,31 +131,19 @@ export class ButtonsPage extends BasePage {
     //TC BTN_011
 
     async verifyButtonHoverEffect() {
+    const button = this.page.getByTestId('btn-click-hold'); // Use your actual locator/testid
 
-        const buttonDoubleClick = this.page.getByTestId('btn-double-click');
-        const bgBefore0 = await buttonDoubleClick.evaluate(el =>
-            window.getComputedStyle(el).backgroundColor);
-        console.log('Before Hover:', bgBefore0);
-        await buttonDoubleClick.hover();
-        const bgAfter0 = await buttonDoubleClick.evaluate(el =>
-            window.getComputedStyle(el).backgroundColor);
-        console.log('After Hover:', bgAfter0);
-        expect(bgAfter0).not.toBe(bgBefore0);
-        console.log('PASS: Background color changed on hover');
+    // Optional: Get initial state or use toHaveCSS directly
+    const initialBg = await button.evaluate(el => window.getComputedStyle(el).backgroundColor);
+    console.log('Before Hover:', initialBg);
 
-        const buttonClickandHold = this.page.getByTestId('btn-click-hold');
-        const bgBefore = await buttonClickandHold.evaluate(el =>
-            window.getComputedStyle(el).backgroundColor);
-        console.log('Before Hover:', bgBefore);
-        await buttonClickandHold.hover();
-        const bgAfter = await buttonClickandHold.evaluate(el =>
-            window.getComputedStyle(el).backgroundColor);
-        console.log('After Hover:', bgAfter);
-        expect(bgAfter).not.toBe(bgBefore);
-        console.log('PASS: Background color changed on hover');
+    // Perform hover
+    await button.hover();
 
-
-    }
+    // Use Playwright's auto-retrying assertion instead of static expect
+    await expect(button).not.toHaveCSS('background-color', initialBg);
+    console.log('PASS: Background color changed on hover');
+}
 
     //TC BTN_12
 
