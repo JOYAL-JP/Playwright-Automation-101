@@ -148,6 +148,6 @@ export class ButtonsPage extends BasePage {
     //TC BTN_12
 
     async revertReloadState() {
-
+// change
     }
 }
