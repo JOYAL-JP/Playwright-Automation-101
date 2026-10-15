@@ -50,4 +50,19 @@ export class FormsPage extends BasePage {
         await this.page.getByRole('button', { name: "Save Interests" }).click();
         await expect(this.page.getByTestId('result-interests')).toContainText('Playwright');
     }
+      
+
+    //F05
+
+    async accountSetupForm()
+    {
+        await this.page.getByTestId('input-password').fill("Admin@123");
+        await this.page.getByLabel('Confirm password').fill('Admin@123');
+        await this.page.getByLabel('I agree to the Terms & Conditions').check();
+        await this.page.getByRole('button',{name: 'Submit'}).click();
+        await expect(this.page.getByTestId('submitted-name')).toContainText('Your account has been secured.');
+    }
+     
+     
+
 }

@@ -22,4 +22,7 @@ test.describe('Form Tests', () => {
   test('F04 Interest Form Details', async ({ formsPage }) => {
     await formsPage.interestForm();
   });
+ test('F05 Account setup form validation', async ({ formsPage }) => {
+    await formsPage.accountSetupForm();
+  });
 });
