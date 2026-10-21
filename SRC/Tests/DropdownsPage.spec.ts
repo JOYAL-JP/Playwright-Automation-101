@@ -11,4 +11,7 @@ test.describe('Dropdown Tests', () => {
     await dropdownsPage.validateDropdowns(['Apple', 'Orange', 'Banana']);
   });
 
+  test('D02 Dropdown validation using values', async ({ dropdownsPage }) => {
+    await dropdownsPage.validateDropdownusingValues();
+  });
 });
