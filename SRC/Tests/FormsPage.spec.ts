@@ -11,6 +11,10 @@ test.describe('Form Tests', () => {
     await formsPage.validateLoginForm();
   });
 
+  test('FRM_001 Login Required Fields Validation', async ({ formsPage }) => {
+    await formsPage.verifyRequiredFieldsError();
+  });
+
   test('F02 Personal Details Validation', async ({ formsPage }) => {
     await formsPage.personalDetailsForm();
   });

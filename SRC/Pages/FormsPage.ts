@@ -8,14 +8,26 @@ export class FormsPage extends BasePage {
     }
 
 
-    //F01 - Login Form Validation 
+    //F01 - Login Form Validation Also covers FRM_001
 
     async validateLoginForm() {
         await this.page.getByLabel('Email').fill('admin@example.com');
         await this.page.locator('#login-password').fill('Password123');
         await this.page.getByTestId('btn-login-submit').click();
         await expect(this.page.getByTestId('result-login')).toContainText("admin@example.com");
+        
 
+    }
+
+
+    //FRM_002 
+
+    async verifyRequiredFieldsError()
+    {
+        // await this.page.getByTestId('btn-login-reset').click();
+        await this.page.getByTestId('btn-login-submit').click();
+        await expect(this.page.locator('#loginEmailError')).toContainText('Email is required.');
+        await expect(this.page.locator('#loginPasswordError')).toContainText('Password is required.');
     }
 
 
