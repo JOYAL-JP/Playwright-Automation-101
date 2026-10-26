@@ -54,5 +54,13 @@ async navigateToInputFieldsPage() {
     );
 
 }
+async navigateToDropdownPage() {
 
+    await this.navigateAndVerify(
+        'a[href="/practice/dropdowns"]',
+        /dropdowns/,
+        'Dropdown Automation Practice'
+    );
+
+}
 }
