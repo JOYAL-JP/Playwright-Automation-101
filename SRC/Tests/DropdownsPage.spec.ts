@@ -14,4 +14,15 @@ test.describe('Dropdown Tests', () => {
   test('D02 Dropdown validation using values', async ({ dropdownsPage }) => {
     await dropdownsPage.validateDropdownusingValues();
   });
+
+  test('D03 Dropdown validation using index', async ({ dropdownsPage }) => {
+    await dropdownsPage.validateDropdownsusingIndex();
+  });
+
+  test('D04 Dropdown validation for multiple select dropdown', async ({ dropdownsPage }) => {
+    await dropdownsPage.validateDropdownSelectOption();
+  });
+  test('D06 Dropdown validation for searchablle combox', async ({ dropdownsPage }) => {
+    await dropdownsPage.validateEditCombobox();
+  });
 });

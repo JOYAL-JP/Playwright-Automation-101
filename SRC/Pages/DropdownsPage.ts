@@ -26,6 +26,24 @@ export class DropdownsPage extends BasePage {
 
         await countrySelect.selectOption({ value: 'india' });
         await expect(this.page.getByTestId('result-s02')).toContainText('India');
+
+    }
+
+    async validateDropdownsusingIndex() {
+        const dropdown = this.page.locator('#languageSelect');
+        const optionCount = await dropdown.locator('option').count();
+        await dropdown.selectOption({ index: optionCount - 1 });
+        await expect(this.page.getByTestId("result-s03")).toContainText("TypeScript");
+    }
+
+
+    async validateDropdownSelectOption() {
+        const heros = ["Ant-Man", "Aquaman", "The Avengers", "Batman"];
+        await this.page.locator('#heroSelect').selectOption(heros);
+        await expect(this.page.getByTestId("result-s04")).toContainText("Ant-Man, Aquaman, The Avengers, Batman");
+    }
+    async validateEditCombobox() {
         
-}
+
+    }
 }

@@ -63,4 +63,14 @@ async navigateToDropdownPage() {
     );
 
 }
+
+async navigateToAlertsandDialogsPage()
+{
+    await this.navigateAndVerify(
+        'a[href="/practice/alerts-dialogs"]',
+        /alerts-dialogs/,
+        'Alerts & Dialogs Automation Practice'
+
+    )
+}
 }
